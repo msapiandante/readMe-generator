@@ -20,20 +20,43 @@ inquirer
   .prompt([
     {
       type: 'input',
-      name: 'name',
-      message: 'What is your name?',
+      name: 'title',
+      message: 'What is your project title?',
     },
     {
-      type: 'checkbox',
-      message: 'What languages do you know?',
-      name: 'stack',
-      choices: ['HTML', 'CSS', 'JavaScript', 'MySQL'],
+      type: 'input',
+      title: 'description',
+      message: 'Enter project description.'
+       "Table of Contents", "Installation", "Usage", "License", "Contributing", "Tests", "Questions"],
     },
     {
-      type: 'list',
-      message: 'What is your preferred method of communication?',
-      name: 'contact',
-      choices: ['email', 'phone', 'telekinesis'],
+        type: 'input',
+        title: 'Table of Contents',
+        message: 'What is your project title?',
+      },
+      {
+        type: 'input',
+        title: 'title',
+        message: 'What is your project title?',
+      },
+      {
+        type: 'input',
+        title: 'title',
+        message: 'What is your project title?',
+      },
+      {
+        type: 'input',
+        title: 'title',
+        message: 'What is your project title?',
+      },
+      {
+        type: 'input',
+        title: 'title',
+        message: 'What is your project title?',
+      },
+    
+    
+    'email', 'phone', 'telekinesis'],
     },
   ])
   .then((data) => {
