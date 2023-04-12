@@ -4,7 +4,7 @@ const inquirer = require("inquirer");
 const fs = require('fs');
 
 // TODO: Create an array of questions for user input
-const questions = [];
+const questions = []; //isn't this what i did below?. include questions from prompt here. 
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) { }
@@ -29,8 +29,7 @@ inquirer
 
     },
     {
-      //should this be the "list" type? 
-      type: 'input',
+      type: 'list',
       title: 'Table of Contents',
       message: 'List table of contents',
     },
