@@ -1,82 +1,84 @@
 // TODO: Include packages needed for this application
-const inquirer = require("inquirer");
-//how did we install or link inquirer and fs? i know the above and below code starts it. how to finish? am i correct in that it's built in? 
 const fs = require('fs');
+const inquirer = require('inquirer');
+
+const generateReadMe = ({ Title, Description, TableOfContents, Installation, Usage, License, Contributing, Tests, Questions}) =>
+`# ${Title}
+
+## ${Description}
+
+## ${TableOfContents}
+
+## ${Installation}
+
+## ${Usage}
+
+## ${License}
+
+## ${Contributing}
+
+## ${Tests}
+
+## ${Questions}
+`;
 
 // TODO: Create an array of questions for user input
-const questions = []; //isn't this what i did below?. include questions from prompt here. 
+const questions = [
+  {
+    type: 'input',
+    name: 'Title',
+    message: 'What is your project title?',
+  },
+  {
+    type: 'input',
+    name: 'Description',
+    message: 'Write project description.'
+
+  },
+  {
+    type: 'input',
+    name: 'TableOfContents',
+    message: 'List table of contents',
+  },
+  {
+    type: 'input',
+    name: 'Installation',
+    message: 'Enter notes on installation here',
+  },
+  {
+    type: 'input',
+    name: 'Usage',
+    message: 'Enter notes on usage here',
+  },
+  {
+    type: 'input',
+    name: 'License',
+    message: 'Enter license information here',
+  },
+  {
+    type: 'input',
+    name: 'Contributing',
+    message: 'How can other developers contribute to this project?',
+  },
+  {
+    type: 'input',
+    name: 'Tests',
+    message: 'Enter any test information here',
+  },
+  {
+    type: 'input',
+    name: 'Questions',
+    message: 'Write questions section here',
+  },
+];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) { }
 
-// TODO: Create a function to initialize app
-function init() { }
+  inquirer.prompt(questions)
+  .then((answers) => {
+  const readMeInfo = generateReadMe(answers);
 
-// Function call to initialize app
-init();
-
-inquirer
-  .prompt([
-    {
-      type: 'input',
-      name: 'title',
-      message: 'What is your project title?',
-    },
-    {
-      type: 'input',
-      title: 'description',
-      message: 'Write project description.'
-
-    },
-    {
-      type: 'list',
-      title: 'Table of Contents',
-      message: 'List table of contents',
-    },
-    {
-      type: 'input',
-      title: 'Installation',
-      message: 'Enter notes on installation here',
-    },
-    {
-      type: 'input',
-      title: 'Usage',
-      message: 'Enter notes on usage here',
-    },
-    {
-      type: 'input',
-      title: 'License',
-      message: 'Enter license information here',
-    },
-    {
-      type: 'input',
-      title: 'Contributing',
-      message: 'How can other developers contribute to this project?',
-    },
-    {
-    type: 'input',
-    title: 'Contributing',
-    message: 'How can other developers contribute to this project?',
-    },
-    {
-    type: 'input',
-    title: 'Tests',
-    message: 'Enter any test information here',
-    },
-    {
-    type: 'input',
-    title: 'Questions',
-    message: 'Write questions section here',
-    },
-  ])
-
-  .then((data) => {
-    const filename = `${data.name.toLowerCase().split(' ').join('')}.json`;
-
-    fs.writeFile(filename, JSON.stringify(data, null, '\t'), (err) =>
-      err ? console.log(err) : console.log('Success!')
+  fs.writeFile('readme.md', readMeInfo, (err) =>
+    err ? console.log(err) : console.log('Success! Readme created.')
     );
   });
-  //when i enter github user name, it appends to Questions section of readMe file. 
-  //when i enter email, it appends to questions section of readMe file. 
-  
