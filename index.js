@@ -1,7 +1,6 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
-//do I need fs for the challenge? I think so because it's a libarary... will follow up.  
-//how did we install or link inquirer and fs? i know the above and below code starts it. how to finish? 
+//how did we install or link inquirer and fs? i know the above and below code starts it. how to finish? am i correct in that it's built in? 
 const fs = require('fs');
 
 // TODO: Create an array of questions for user input
@@ -79,3 +78,6 @@ inquirer
       err ? console.log(err) : console.log('Success!')
     );
   });
+  //when i enter github user name, it appends to Questions section of readMe file. 
+  //when i enter email, it appends to questions section of readMe file. 
+  
